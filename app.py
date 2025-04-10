@@ -13,20 +13,12 @@ from ultralytics import YOLO
 import io 
 import torch
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
-import os
-import sys
 import threading
 from src.config.config import load_config
-import asyncio
 # Add these imports at the top of your file
-import logging
-import av
 import cv2 
-import asyncio
-import nest_asyncio
 
-# Apply nest_asyncio to allow nested event loops
-nest_asyncio.apply()
+
     
 def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
     """Perform object detection, draw bounding boxes, and black out glasses."""
