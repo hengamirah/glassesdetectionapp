@@ -1,4 +1,9 @@
 # Glasses Detection ML Pipeline
+### Demo Video
+
+<video src="DEMO_Video.mp4" controls="controls" style="max-width: 100%; height: auto;">
+   Your browser does not support the video tag.
+</video>
 
 A comprehensive machine learning pipeline for detecting glasses in images and video streams using YOLOv8. This project integrates real-time detection, model training, and MLflow experiment tracking.
 
@@ -73,6 +78,10 @@ Update the `data/data.yaml` file with your dataset details.
 
 ## Usage
 
+## RUnning streamlit application
+``` bash
+streamlit run app.py 
+```
 ### Training
 
 Train the model using the following command:
@@ -109,10 +118,6 @@ To run the main application:
 python main.py 
 ```
 
-## RUnning streamlit application
-``` bash
-streamlit run app.py 
-```
 
 ## Configuration
 

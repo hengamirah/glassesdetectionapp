@@ -1,0 +1,138 @@
+2025-04-10 21:27:23,160 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:28:29,545 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:28:52,710 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:28:52,710 - glasses_detection - INFO - Initializing glasses detection pipeline
+2025-04-10 21:29:46,920 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:32:45,722 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:32:45,723 - glasses_detection - INFO - Initializing glasses detection pipeline
+2025-04-10 21:37:08,647 - glasses_detection - ERROR - Pipeline failed: API request to http://127.0.0.1:5000/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=Glasses_Detection-inference (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020BF259EB60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+Traceback (most recent call last):
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connection.py", line 441, in request
+    self.endheaders()
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\http\client.py", line 1271, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\http\client.py", line 1031, in _send_output
+    self.send(msg)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\http\client.py", line 969, in send
+    self.connect()
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connection.py", line 279, in connect
+    self.sock = self._new_conn()
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connection.py", line 214, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000020BF259EB60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 873, in urlopen
+    return self.urlopen(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 873, in urlopen
+    return self.urlopen(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 873, in urlopen
+    return self.urlopen(
+  [Previous line repeated 4 more times]
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=Glasses_Detection-inference (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020BF259EB60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\utils\rest_utils.py", line 181, in http_request
+    return _get_http_response_with_retries(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\utils\request_utils.py", line 237, in _get_http_response_with_retries
+    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=Glasses_Detection-inference (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020BF259EB60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Amirah\OneDrive\999 PERSONAL\MT\predict.py", line 111, in run_live_inference
+    pipeline = GlassesDetectionPipeline(config)
+  File "C:\Users\Amirah\OneDrive\999 PERSONAL\MT\src\processing\detector.py", line 18, in __init__
+    mlflow.set_experiment(f"{mlflow_config['tracking']['experiment_name']}-inference")
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\tracking\fluent.py", line 157, in set_experiment
+    experiment = client.get_experiment_by_name(experiment_name)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\tracking\client.py", line 1698, in get_experiment_by_name
+    return self._tracking_client.get_experiment_by_name(name)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 586, in get_experiment_by_name
+    return self.store.get_experiment_by_name(name)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\store\tracking\rest_store.py", line 641, in get_experiment_by_name
+    response_proto = self._call_endpoint(GetExperimentByName, req_body)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\store\tracking\rest_store.py", line 90, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\utils\rest_utils.py", line 387, in call_endpoint
+    response = http_request(**call_kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\mlflow\utils\rest_utils.py", line 204, in http_request
+    raise MlflowException(f"API request to {url} failed with exception {e}")
+mlflow.exceptions.MlflowException: API request to http://127.0.0.1:5000/api/2.0/mlflow/experiments/get-by-name failed with exception HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=Glasses_Detection-inference (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020BF259EB60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-04-10 21:41:08,032 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:41:08,032 - glasses_detection - INFO - Initializing glasses detection pipeline
+2025-04-10 21:41:08,032 - glasses_detection - INFO - Loading YOLO model...
+2025-04-10 21:41:08,119 - glasses_detection - INFO - Model loaded successfully.
+2025-04-10 21:41:08,120 - glasses_detection - INFO - Retrieving glasses class ID...
+2025-04-10 21:41:08,475 - glasses_detection - INFO - Starting live inference
+2025-04-10 21:41:08,476 - glasses_detection - INFO - Starting Glasses Detection Pipeline...
+2025-04-10 21:41:20,474 - glasses_detection - INFO - Saved output frame 0 to outputs\frame_20250410_214120_0.jpg
+2025-04-10 21:41:21,676 - glasses_detection - INFO - Saved output frame 30 to outputs\frame_20250410_214121_30.jpg
+2025-04-10 21:41:22,860 - glasses_detection - INFO - Saved output frame 60 to outputs\frame_20250410_214122_60.jpg
+2025-04-10 21:41:24,078 - glasses_detection - INFO - Saved output frame 90 to outputs\frame_20250410_214124_90.jpg
+2025-04-10 21:41:25,219 - glasses_detection - INFO - Saved output frame 120 to outputs\frame_20250410_214125_120.jpg
+2025-04-10 21:41:26,336 - glasses_detection - INFO - Saved output frame 150 to outputs\frame_20250410_214126_150.jpg
+2025-04-10 21:41:27,415 - glasses_detection - INFO - Saved output frame 180 to outputs\frame_20250410_214127_180.jpg
+2025-04-10 21:41:28,714 - glasses_detection - INFO - Saved output frame 210 to outputs\frame_20250410_214128_210.jpg
+2025-04-10 21:41:30,041 - glasses_detection - INFO - Saved output frame 240 to outputs\frame_20250410_214130_240.jpg
+2025-04-10 21:41:31,381 - glasses_detection - INFO - Saved output frame 270 to outputs\frame_20250410_214131_270.jpg
+2025-04-10 21:41:32,651 - glasses_detection - INFO - Saved output frame 300 to outputs\frame_20250410_214132_300.jpg
+2025-04-10 21:41:33,944 - glasses_detection - INFO - Saved output frame 330 to outputs\frame_20250410_214133_330.jpg
+2025-04-10 21:41:35,188 - glasses_detection - INFO - Saved output frame 360 to outputs\frame_20250410_214135_360.jpg
+2025-04-10 21:41:36,387 - glasses_detection - INFO - Saved output frame 390 to outputs\frame_20250410_214136_390.jpg
+2025-04-10 21:41:37,507 - glasses_detection - INFO - Saved output frame 420 to outputs\frame_20250410_214137_420.jpg
+2025-04-10 21:41:38,686 - glasses_detection - INFO - Saved output frame 450 to outputs\frame_20250410_214138_450.jpg
+2025-04-10 21:41:40,007 - glasses_detection - INFO - Saved output frame 480 to outputs\frame_20250410_214140_480.jpg
+2025-04-10 21:41:40,375 - glasses_detection - INFO - Pipeline stopped by user.
+2025-04-10 21:41:40,677 - glasses_detection - INFO - Glasses Detection Pipeline finished.
+2025-04-10 21:41:50,045 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:41:50,045 - glasses_detection - INFO - Loading YOLO model...
+2025-04-10 21:41:50,124 - glasses_detection - INFO - Model loaded successfully.
+2025-04-10 21:41:50,124 - glasses_detection - INFO - Retrieving glasses class ID...
+2025-04-10 21:41:50,458 - glasses_detection - INFO - Starting glasses detection pipeline
+2025-04-10 21:41:50,458 - glasses_detection - INFO - Starting Glasses Detection Pipeline...
+2025-04-10 21:42:01,332 - glasses_detection - INFO - Saved output frame 0 to outputs\frame_20250410_214201_0.jpg
+2025-04-10 21:42:02,578 - glasses_detection - INFO - Saved output frame 30 to outputs\frame_20250410_214202_30.jpg
+2025-04-10 21:42:03,624 - glasses_detection - INFO - Saved output frame 60 to outputs\frame_20250410_214203_60.jpg
+2025-04-10 21:42:04,714 - glasses_detection - INFO - Saved output frame 90 to outputs\frame_20250410_214204_90.jpg
+2025-04-10 21:42:05,879 - glasses_detection - INFO - Saved output frame 120 to outputs\frame_20250410_214205_120.jpg
+2025-04-10 21:42:06,949 - glasses_detection - INFO - Saved output frame 150 to outputs\frame_20250410_214206_150.jpg
+2025-04-10 21:42:08,041 - glasses_detection - INFO - Saved output frame 180 to outputs\frame_20250410_214208_180.jpg
+2025-04-10 21:42:09,261 - glasses_detection - INFO - Saved output frame 210 to outputs\frame_20250410_214209_210.jpg
+2025-04-10 21:42:10,420 - glasses_detection - INFO - Saved output frame 240 to outputs\frame_20250410_214210_240.jpg
+2025-04-10 21:42:11,667 - glasses_detection - INFO - Saved output frame 270 to outputs\frame_20250410_214211_270.jpg
+2025-04-10 21:42:13,020 - glasses_detection - INFO - Saved output frame 300 to outputs\frame_20250410_214213_300.jpg
+2025-04-10 21:42:14,024 - glasses_detection - INFO - Pipeline stopped by user.
+2025-04-10 21:42:14,344 - glasses_detection - INFO - Glasses Detection Pipeline finished.

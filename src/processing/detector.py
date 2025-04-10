@@ -6,6 +6,14 @@ from datetime import datetime
 import os
 import numpy as np
 from src.config.config import load_config
+from src.logging.logger import setup_logging
+# Configure logging
+log_config = {
+    "level": "DEBUG",  # Set to DEBUG to capture detailed logs
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/detector.log",  # Log file path
+}
+logger = setup_logging(log_config)
 
 class GlassesDetectionPipeline:
     def __init__(self, config: Dict[str, Any]):
@@ -20,16 +28,21 @@ class GlassesDetectionPipeline:
     def _load_model(self):
         """Load YOLO model with error handling"""
         try:
+            logger.info("Loading YOLO model...")
             model = YOLO(self.config['inference']['path'])
+            logger.info("Model loaded successfully.")
             return model
         except Exception as e:
+            logger.error(f"Model loading failed: {e}")
             raise RuntimeError(f"Model loading failed: {e}")
     
     def _get_glasses_class_id(self) -> int:
         """Find glasses class ID in model"""
+        logger.info("Retrieving glasses class ID...")
         for class_id, class_name in self.class_names.items():
             if 'glass' in class_name.lower():
                 return class_id
+        logger.error("Glasses class not found in model.")
         raise ValueError("Glasses class not found in model")
     
     def process_frame(self, frame: np.ndarray) -> Tuple[np.ndarray, dict]:
@@ -78,6 +91,7 @@ class GlassesDetectionPipeline:
 
     def run(self):
         """Main pipeline execution"""
+        logger.info("Starting Glasses Detection Pipeline...")
         cap = cv2.VideoCapture(self.config['camera']['source'])
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.config['camera']['width'])
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.config['camera']['height'])
@@ -92,22 +106,27 @@ class GlassesDetectionPipeline:
             while True:
                 ret, frame = cap.read()
                 if not ret:
+                    logger.info("End of video stream or error reading frame.")
                     break
+                logger.debug(f"Processing frame {frame_count}...")
+                try:
+                    processed_frame, metrics = self.process_frame(frame)
+                    self._log_metrics(metrics, frame_count)
+                    self._save_output(processed_frame, frame_count)
+                except Exception as e:
+                    logger.error(f"Error processing frame {frame_count}: {e}")
                 
-                processed_frame, metrics = self.process_frame(frame)
-                self._log_metrics(metrics, frame_count)
-
-                #processed_frame= self.process_frame(frame)
                 cv2.imshow('Glasses Detection', processed_frame)
-                self._save_output(processed_frame, frame_count)
                 
                 if cv2.waitKey(1) == ord('q'):
+                    logger.info("Pipeline stopped by user.")
                     break
                 
                 frame_count += 1
             
             cap.release()
             cv2.destroyAllWindows()
+            logger.info("Glasses Detection Pipeline finished.")
     
     def _log_parameters(self):
         """Log parameters to MLflow"""
@@ -119,6 +138,7 @@ class GlassesDetectionPipeline:
     
     def _log_metrics(self, metrics: dict, frame_count: int):
         """Log metrics to MLflow"""
+        logger.debug(f"Logging metrics for frame {frame_count}: {metrics}")
         mlflow.log_metrics({
             'glasses_detected': int(metrics['glasses_detected']),
             'confidence': metrics.get('confidence', 0),
@@ -133,4 +153,5 @@ class GlassesDetectionPipeline:
                 f"frame_{timestamp}_{frame_count}.jpg"
             )
             cv2.imwrite(output_path, frame)
+            logger.info(f"Saved output frame {frame_count} to {output_path}")
             #mlflow.log_artifact(output_path)

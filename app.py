@@ -116,7 +116,7 @@ def run_app():
     
     # Set page configuration with a professional look
     st.set_page_config(
-        page_title="Mobile Tech Industries - CV Detection", 
+        page_title="Mobile Technologies - Glasses Detection", 
         layout="wide", 
         initial_sidebar_state="expanded",
         page_icon="📱"
@@ -571,6 +571,7 @@ def run_app():
                                 columns=['Class', 'Quantity']
                             )
                             st.dataframe(df_fq)
+
             if pred1 and (cap is not None):
                 class_names = list(model.names.values())
                 selected_classes = st.sidebar.multiselect("Classes to detect", class_names, default=class_names[:3], key='select_class')
