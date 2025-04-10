@@ -1,6 +1,0 @@
-artifact_location: mlflow-artifacts:/745315092559120039
-creation_time: 1744292468462
-experiment_id: '745315092559120039'
-last_update_time: 1744292468462
-lifecycle_stage: active
-name: Glasses_Detection-inference

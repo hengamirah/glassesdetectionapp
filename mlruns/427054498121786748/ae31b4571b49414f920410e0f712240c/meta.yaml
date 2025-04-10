@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/427054498121786748/ae31b4571b49414f920410e0f712240c/artifacts
+end_time: 1744296480072
+entry_point_name: ''
+experiment_id: '427054498121786748'
+lifecycle_stage: active
+run_id: ae31b4571b49414f920410e0f712240c
+run_name: bedecked-lark-490
+run_uuid: ae31b4571b49414f920410e0f712240c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744296479317
+status: 3
+tags: []
+user_id: mlflow
