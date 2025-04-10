@@ -1,6 +1,5 @@
 import streamlit as st
 import time
-import cv2
 import numpy as np
 import tempfile
 from collections import Counter
@@ -20,6 +19,13 @@ import threading
 from src.config.config import load_config
 import asyncio
 
+# Import cv2 inside a try-except block to handle potential import issues
+try:
+    import cv2
+    OPENCV_AVAILABLE = True
+except ImportError:
+    st.error("OpenCV could not be imported. Some features may not be available.")
+    OPENCV_AVAILABLE = False
 
     
 def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
@@ -468,12 +474,12 @@ def run_app():
                     byte_data = upload_img_file.read()
                     image = Image.open(upload_img_file)
                     img = np.array(image)
-                    org_frame.image(upload_img_file, caption='Original Image', channels="BGR", use_column_width=True)
+                    org_frame.image(upload_img_file, caption='Original Image', channels="BGR", use_container_width=True)
 
                     if pred:
                         with st.spinner("Processing image..."):
                             img, current_no_class = detect_objects(img, model, confidence, color_pick_list, class_labels, draw_thick)    
-                            ann_frame.image(img, caption='Processed Image (Glasses Obscured)', channels="RGB", use_column_width=True)
+                            ann_frame.image(img, caption='Processed Image (Glasses Obscured)', channels="RGB", use_container_width=True)
                             
                             # Current number of classes
                             class_fq = dict(Counter(i for sub in current_no_class for i in set(sub)))
@@ -577,13 +583,13 @@ def run_app():
                             break
                         
                         # Display original frame
-                        org_frame.image(frame, caption="Original Video", channels="BGR", use_column_width=True)
+                        org_frame.image(frame, caption="Original Video", channels="BGR", use_container_width=True)
                         
                         # Process frame
                         img, current_no_class = get_yolo(frame.copy(), model, confidence, color_rev_list, class_labels, draw_thick)
                         
                         # Display processed frame
-                        ann_frame.image(img, caption="Processed Video (Glasses Obscured)", channels="BGR", use_column_width=True)
+                        ann_frame.image(img, caption="Processed Video (Glasses Obscured)", channels="BGR", use_container_width=True)
 
                         # FPS calculation
                         c_time = time.time()
