@@ -4,7 +4,7 @@
 # torchvision==0.21.0+cu118
 
 # PyTorch (CPU-only versions)
-torch==2.51
+torch==2.5.1
 torchvision==0.20.1
 torchaudio==2.5.1 
 
