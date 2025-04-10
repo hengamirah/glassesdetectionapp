@@ -1,7 +1,12 @@
 # GPU support (optional)
-torch==2.6.0+cu118
-torchaudio==2.5.1+cu118
-torchvision==0.21.0+cu118
+# torch==2.6.0+cu118
+# torchaudio==2.5.1+cu118
+# torchvision==0.21.0+cu118
+
+# PyTorch (CPU-only versions)
+torch==2.0.1+cpu
+torchvision==0.15.2+cpu
+torchaudio==2.0.2+cpu
 
 # Core dependencies
 numpy>=1.20.0
