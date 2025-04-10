@@ -18,14 +18,10 @@ import sys
 import threading
 from src.config.config import load_config
 import asyncio
-
-# Import cv2 inside a try-except block to handle potential import issues
-try:
-    import cv2
-    OPENCV_AVAILABLE = True
-except ImportError:
-    st.error("OpenCV could not be imported. Some features may not be available.")
-    OPENCV_AVAILABLE = False
+# Add these imports at the top of your file
+import logging
+import av
+import cv2 
 
     
 def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
@@ -622,7 +618,7 @@ def run_app():
     # Add footer
     st.markdown("""
     <div class="footer">
-        <p>© 2025 Mobile Technology Industry. All rights reserved.</p>
+        <p>© 2025 Mobile Technologies. All rights reserved.</p>
         <p>Privacy Detection Platform v1.0 | Enterprise Edition</p>
     </div>
     """, unsafe_allow_html=True)
