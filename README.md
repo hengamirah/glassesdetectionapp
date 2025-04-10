@@ -1,9 +1,9 @@
 # Glasses Detection ML Pipeline
 ### Demo Video
 
-<video src="DEMO_Video.mp4" controls="controls" style="max-width: 100%; height: auto;">
-   Your browser does not support the video tag.
-</video>
+
+https://github.com/user-attachments/assets/f3c8fc56-f441-4df0-a3d2-93553fc5d556
+
 
 A comprehensive machine learning pipeline for detecting glasses in images and video streams using YOLOv8. This project integrates real-time detection, model training, and MLflow experiment tracking.
 
