@@ -115,60 +115,6 @@ def detect_objects(image, model, confidence, color_pick_list, class_labels, draw
                 current_no_class.append([class_labels[int(cs)]])
     return image, current_no_class
 
-class MyVideoTransformer(VideoTransformerBase):
-    def __init__(self, conf, model,color_pick_list, class_labels, draw_thick):
-        self.conf  = conf
-        self.model = model
-        self.color_pick_list = color_pick_list
-        self.class_labels = class_labels
-        self.draw_thick = draw_thick
-    
-    
-    def recv(self, frame):
-        col1, col2 = st.columns([2,2])
-        org_frame = col1.empty()
-        ann_frame = col2.empty()
-        
-        image = frame.to_ndarray(format="bgr24")
-        img, current_no_class = get_yolo(frame, self.model , self.conf , self.color_pick_list, self.class_labels, self.draw_thick)
-        
-        
-        org_frame.image(frame, caption='Original Video', channels="BGR", use_column_width=True)
-        
-        processed_image = self._display_detected_frames(image)
-        ann_frame.image(processed_image, caption='Processed Video', channels="BGR", use_column_width=True)
-        st.image(img, caption='Processed Video 2', channels="BGR", use_column_width=True)
-        
-        
-        # Current number of classes
-        class_fq = dict(Counter(i for sub in current_no_class for i in set(sub)))
-        class_fq = json.dumps(class_fq, indent = 4)
-        class_fq = json.loads(class_fq)
-        df_fq = pd.DataFrame(class_fq.items(), columns=['Class', 'Number'])
-            
-        # Updating Inference results
-        with st.container():
-            st.markdown("<h2>Inference Statistics</h2>", unsafe_allow_html=True)
-            st.markdown("<h3>Detected objects in curret Frame</h3>", unsafe_allow_html=True)
-            st.dataframe(df_fq, use_container_width=True)
-            
-
-    def _display_detected_frames(self, image):
-        orig_h, orig_w = image.shape[0:2]
-        width = 720  # Set the desired width for processing
-
-        # cv2.resize used in a forked thread may cause memory leaks
-        input = np.asarray(Image.fromarray(image).resize((width, int(width * orig_h / orig_w))))
-
-        if self.model is not None:
-            # Perform object detection using YOLO model
-            res = self.model.predict(input, conf=self.conf)
-
-            # Plot the detected objects on the video frame
-            res_plotted = res[0].plot()
-            return res_plotted
-
-        return input
 def run_app(): 
    
     lock = threading.Lock()
