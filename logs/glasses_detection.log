@@ -1,0 +1,276 @@
+2025-04-10 11:54:12,522 - glasses_detection - INFO - Logging setup complete
+2025-04-10 11:54:13,025 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_115413
+2025-04-10 11:55:54,773 - glasses_detection - INFO - Logging setup complete
+2025-04-10 11:55:55,020 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_115555
+2025-04-10 11:55:55,467 - glasses_detection - ERROR - Training failed: 'image_size'
+Traceback (most recent call last):
+  File "C:\Users\Amirah\OneDrive\999 PERSONAL\MT\train.py", line 70, in train_model
+    imgsz=app_config['training']['image_size'],
+KeyError: 'image_size'
+2025-04-10 11:56:13,880 - glasses_detection - INFO - Logging setup complete
+2025-04-10 11:56:14,126 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_115614
+2025-04-10 11:57:15,685 - glasses_detection - INFO - Logging setup complete
+2025-04-10 11:57:15,935 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_115715
+2025-04-10 11:58:51,326 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 11:58:51,326 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 11:59:15,689 - glasses_detection - INFO - Completed epoch 0/100
+2025-04-10 11:59:35,398 - glasses_detection - INFO - Completed epoch 1/100
+2025-04-10 11:59:54,332 - glasses_detection - INFO - Completed epoch 2/100
+2025-04-10 12:00:12,766 - glasses_detection - INFO - Completed epoch 3/100
+2025-04-10 12:00:31,534 - glasses_detection - INFO - Completed epoch 4/100
+2025-04-10 12:00:50,205 - glasses_detection - INFO - Completed epoch 5/100
+2025-04-10 12:01:08,463 - glasses_detection - INFO - Completed epoch 6/100
+2025-04-10 12:01:27,148 - glasses_detection - INFO - Completed epoch 7/100
+2025-04-10 12:01:45,700 - glasses_detection - INFO - Completed epoch 8/100
+2025-04-10 12:09:38,026 - glasses_detection - INFO - Logging setup complete
+2025-04-10 12:09:38,436 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_120938
+2025-04-10 12:11:08,963 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 12:11:08,963 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 12:11:31,447 - glasses_detection - INFO - Completed epoch 0/2
+2025-04-10 12:11:50,137 - glasses_detection - INFO - Completed epoch 1/2
+2025-04-10 12:11:53,682 - glasses_detection - INFO - Completed epoch 1/2
+2025-04-10 12:11:55,785 - glasses_detection - INFO - Training completed successfully
+2025-04-10 12:11:55,786 - glasses_detection - INFO - Running validation
+2025-04-10 12:12:27,797 - glasses_detection - INFO - Logging best model: runs\detect\yolov11-glasses_20250410_120938\weights\best.pt
+2025-04-10 12:12:28,153 - glasses_detection - INFO - Updated config saved to: configs/app_config_20250410_120938.yaml
+2025-04-10 12:24:06,136 - glasses_detection - INFO - Logging setup complete
+2025-04-10 12:24:06,136 - glasses_detection - INFO - Initializing glasses detection pipeline
+2025-04-10 12:24:06,791 - glasses_detection - INFO - Starting live inference
+2025-04-10 12:25:56,710 - glasses_detection - INFO - Logging setup complete
+2025-04-10 12:25:57,127 - glasses_detection - INFO - Starting glasses detection pipeline
+2025-04-10 15:09:32,707 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:09:33,193 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_150933
+2025-04-10 15:14:34,111 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:14:34,397 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_151434
+2025-04-10 15:16:54,256 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:16:54,649 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_151654
+2025-04-10 15:18:13,414 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:18:13,672 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_151813
+2025-04-10 15:19:19,695 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:19:19,962 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_151919
+2025-04-10 15:20:49,978 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 15:20:49,978 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 15:20:50,553 - glasses_detection - ERROR - Training failed: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+Traceback (most recent call last):
+  File "C:\Users\Amirah\OneDrive\999 PERSONAL\MT\train.py", line 79, in train_model
+    results = model.train(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\engine\model.py", line 791, in train
+    self.trainer.train()
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\engine\trainer.py", line 211, in train
+    self._do_train(world_size)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\engine\trainer.py", line 385, in _do_train
+    loss, self.loss_items = self.model(batch)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\nn\tasks.py", line 119, in forward
+    return self.loss(x, *args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\nn\tasks.py", line 299, in loss
+    return self.criterion(preds, batch)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\loss.py", line 228, in __call__
+    _, target_bboxes, target_scores, fg_mask, _ = self.assigner(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 77, in forward
+    return self._forward(pd_scores, pd_bboxes, anc_points, gt_labels, gt_bboxes, mask_gt)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 104, in _forward
+    mask_pos, align_metric, overlaps = self.get_pos_mask(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 141, in get_pos_mask
+    align_metric, overlaps = self.get_box_metrics(pd_scores, pd_bboxes, gt_labels, gt_bboxes, mask_in_gts * mask_gt)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 173, in get_box_metrics
+    bbox_scores[mask_gt] = pd_scores[ind[0], :, ind[1]][mask_gt]  # b, max_num_obj, h*w
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2025-04-10 15:24:02,154 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:24:02,543 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_152402
+2025-04-10 15:25:32,092 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 15:25:32,092 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 15:25:32,530 - glasses_detection - ERROR - Training failed: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+Traceback (most recent call last):
+  File "C:\Users\Amirah\OneDrive\999 PERSONAL\MT\train.py", line 79, in train_model
+    results = model.train(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\engine\model.py", line 791, in train
+    self.trainer.train()
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\engine\trainer.py", line 211, in train
+    self._do_train(world_size)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\engine\trainer.py", line 385, in _do_train
+    loss, self.loss_items = self.model(batch)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\nn\tasks.py", line 119, in forward
+    return self.loss(x, *args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\nn\tasks.py", line 299, in loss
+    return self.criterion(preds, batch)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\loss.py", line 228, in __call__
+    _, target_bboxes, target_scores, fg_mask, _ = self.assigner(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\nn\modules\module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 77, in forward
+    return self._forward(pd_scores, pd_bboxes, anc_points, gt_labels, gt_bboxes, mask_gt)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 104, in _forward
+    mask_pos, align_metric, overlaps = self.get_pos_mask(
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 141, in get_pos_mask
+    align_metric, overlaps = self.get_box_metrics(pd_scores, pd_bboxes, gt_labels, gt_bboxes, mask_in_gts * mask_gt)
+  File "C:\Users\Amirah\anaconda3\envs\yolo\lib\site-packages\ultralytics\utils\tal.py", line 173, in get_box_metrics
+    bbox_scores[mask_gt] = pd_scores[ind[0], :, ind[1]][mask_gt]  # b, max_num_obj, h*w
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2025-04-10 15:28:20,290 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:28:20,543 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_152820
+2025-04-10 15:29:48,804 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 15:29:48,804 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 15:30:09,819 - glasses_detection - INFO - Completed epoch 0/2
+2025-04-10 15:30:29,058 - glasses_detection - INFO - Completed epoch 1/2
+2025-04-10 15:30:32,589 - glasses_detection - INFO - Completed epoch 1/2
+2025-04-10 15:30:34,399 - glasses_detection - INFO - Training completed successfully
+2025-04-10 15:30:34,400 - glasses_detection - INFO - Running validation
+2025-04-10 15:31:06,012 - glasses_detection - INFO - Logging best model: runs\detect\yolov11-glasses_20250410_152820\weights\best.pt
+2025-04-10 15:31:06,244 - glasses_detection - INFO - Updated config saved to: configs/app_config_20250410_152820.yaml
+2025-04-10 15:31:38,893 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:31:39,299 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_153139
+2025-04-10 15:38:27,571 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:38:27,824 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_153827
+2025-04-10 15:41:56,093 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:41:56,355 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_154156
+2025-04-10 15:43:27,664 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 15:43:27,665 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 15:43:49,131 - glasses_detection - INFO - Completed epoch 0/100
+2025-04-10 15:44:07,925 - glasses_detection - INFO - Completed epoch 1/100
+2025-04-10 15:45:24,111 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:45:24,481 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_154524
+2025-04-10 15:46:37,465 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:46:37,719 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_154637
+2025-04-10 15:47:20,609 - glasses_detection - INFO - Logging setup complete
+2025-04-10 15:47:20,861 - glasses_detection - INFO - Starting training run: yolov11-glasses_20250410_154720
+2025-04-10 15:48:13,130 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 15:48:13,131 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 15:48:59,679 - glasses_detection - INFO - Training started with batch size: 8
+2025-04-10 15:48:59,679 - glasses_detection - INFO - Training on device: cuda:0
+2025-04-10 15:49:20,827 - glasses_detection - INFO - Completed epoch 0/100
+2025-04-10 15:49:40,565 - glasses_detection - INFO - Completed epoch 1/100
+2025-04-10 15:49:59,042 - glasses_detection - INFO - Completed epoch 2/100
+2025-04-10 15:50:17,166 - glasses_detection - INFO - Completed epoch 3/100
+2025-04-10 15:50:35,465 - glasses_detection - INFO - Completed epoch 4/100
+2025-04-10 15:50:53,559 - glasses_detection - INFO - Completed epoch 5/100
+2025-04-10 15:51:12,211 - glasses_detection - INFO - Completed epoch 6/100
+2025-04-10 15:51:30,150 - glasses_detection - INFO - Completed epoch 7/100
+2025-04-10 15:51:48,939 - glasses_detection - INFO - Completed epoch 8/100
+2025-04-10 15:52:07,407 - glasses_detection - INFO - Completed epoch 9/100
+2025-04-10 15:52:25,564 - glasses_detection - INFO - Completed epoch 10/100
+2025-04-10 15:52:44,221 - glasses_detection - INFO - Completed epoch 11/100
+2025-04-10 15:53:02,546 - glasses_detection - INFO - Completed epoch 12/100
+2025-04-10 15:53:20,534 - glasses_detection - INFO - Completed epoch 13/100
+2025-04-10 15:53:39,339 - glasses_detection - INFO - Completed epoch 14/100
+2025-04-10 15:53:57,685 - glasses_detection - INFO - Completed epoch 15/100
+2025-04-10 15:54:16,410 - glasses_detection - INFO - Completed epoch 16/100
+2025-04-10 15:54:34,756 - glasses_detection - INFO - Completed epoch 17/100
+2025-04-10 15:54:53,597 - glasses_detection - INFO - Completed epoch 18/100
+2025-04-10 15:55:11,979 - glasses_detection - INFO - Completed epoch 19/100
+2025-04-10 15:55:30,553 - glasses_detection - INFO - Completed epoch 20/100
+2025-04-10 15:55:48,860 - glasses_detection - INFO - Completed epoch 21/100
+2025-04-10 15:56:07,147 - glasses_detection - INFO - Completed epoch 22/100
+2025-04-10 15:56:25,519 - glasses_detection - INFO - Completed epoch 23/100
+2025-04-10 15:56:44,474 - glasses_detection - INFO - Completed epoch 24/100
+2025-04-10 15:57:02,925 - glasses_detection - INFO - Completed epoch 25/100
+2025-04-10 15:57:21,173 - glasses_detection - INFO - Completed epoch 26/100
+2025-04-10 15:57:39,534 - glasses_detection - INFO - Completed epoch 27/100
+2025-04-10 15:57:58,112 - glasses_detection - INFO - Completed epoch 28/100
+2025-04-10 15:58:16,106 - glasses_detection - INFO - Completed epoch 29/100
+2025-04-10 15:58:34,263 - glasses_detection - INFO - Completed epoch 30/100
+2025-04-10 15:58:52,116 - glasses_detection - INFO - Completed epoch 31/100
+2025-04-10 15:59:10,659 - glasses_detection - INFO - Completed epoch 32/100
+2025-04-10 15:59:29,093 - glasses_detection - INFO - Completed epoch 33/100
+2025-04-10 15:59:47,878 - glasses_detection - INFO - Completed epoch 34/100
+2025-04-10 16:00:06,277 - glasses_detection - INFO - Completed epoch 35/100
+2025-04-10 16:00:24,188 - glasses_detection - INFO - Completed epoch 36/100
+2025-04-10 16:00:42,508 - glasses_detection - INFO - Completed epoch 37/100
+2025-04-10 16:01:00,847 - glasses_detection - INFO - Completed epoch 38/100
+2025-04-10 16:01:19,338 - glasses_detection - INFO - Completed epoch 39/100
+2025-04-10 16:01:38,560 - glasses_detection - INFO - Completed epoch 40/100
+2025-04-10 16:01:57,210 - glasses_detection - INFO - Completed epoch 41/100
+2025-04-10 16:02:16,490 - glasses_detection - INFO - Completed epoch 42/100
+2025-04-10 16:02:34,987 - glasses_detection - INFO - Completed epoch 43/100
+2025-04-10 16:02:53,695 - glasses_detection - INFO - Completed epoch 44/100
+2025-04-10 16:03:12,035 - glasses_detection - INFO - Completed epoch 45/100
+2025-04-10 16:03:30,564 - glasses_detection - INFO - Completed epoch 46/100
+2025-04-10 16:03:48,960 - glasses_detection - INFO - Completed epoch 47/100
+2025-04-10 16:04:07,391 - glasses_detection - INFO - Completed epoch 48/100
+2025-04-10 16:04:26,067 - glasses_detection - INFO - Completed epoch 49/100
+2025-04-10 16:04:45,113 - glasses_detection - INFO - Completed epoch 50/100
+2025-04-10 16:05:03,153 - glasses_detection - INFO - Completed epoch 51/100
+2025-04-10 16:05:21,793 - glasses_detection - INFO - Completed epoch 52/100
+2025-04-10 16:05:40,855 - glasses_detection - INFO - Completed epoch 53/100
+2025-04-10 16:05:59,848 - glasses_detection - INFO - Completed epoch 54/100
+2025-04-10 16:06:18,792 - glasses_detection - INFO - Completed epoch 55/100
+2025-04-10 16:06:37,749 - glasses_detection - INFO - Completed epoch 56/100
+2025-04-10 16:06:56,222 - glasses_detection - INFO - Completed epoch 57/100
+2025-04-10 16:07:14,902 - glasses_detection - INFO - Completed epoch 58/100
+2025-04-10 16:07:33,054 - glasses_detection - INFO - Completed epoch 59/100
+2025-04-10 16:07:51,482 - glasses_detection - INFO - Completed epoch 60/100
+2025-04-10 16:08:10,219 - glasses_detection - INFO - Completed epoch 61/100
+2025-04-10 16:08:29,695 - glasses_detection - INFO - Completed epoch 62/100
+2025-04-10 16:08:48,073 - glasses_detection - INFO - Completed epoch 63/100
+2025-04-10 16:09:06,552 - glasses_detection - INFO - Completed epoch 64/100
+2025-04-10 16:09:25,328 - glasses_detection - INFO - Completed epoch 65/100
+2025-04-10 16:09:44,392 - glasses_detection - INFO - Completed epoch 66/100
+2025-04-10 16:10:02,776 - glasses_detection - INFO - Completed epoch 67/100
+2025-04-10 16:10:21,057 - glasses_detection - INFO - Completed epoch 68/100
+2025-04-10 16:10:39,110 - glasses_detection - INFO - Completed epoch 69/100
+2025-04-10 16:10:57,797 - glasses_detection - INFO - Completed epoch 70/100
+2025-04-10 16:11:16,433 - glasses_detection - INFO - Completed epoch 71/100
+2025-04-10 16:11:35,047 - glasses_detection - INFO - Completed epoch 72/100
+2025-04-10 16:11:54,113 - glasses_detection - INFO - Completed epoch 73/100
+2025-04-10 16:12:13,012 - glasses_detection - INFO - Completed epoch 74/100
+2025-04-10 16:12:32,110 - glasses_detection - INFO - Completed epoch 75/100
+2025-04-10 16:12:51,037 - glasses_detection - INFO - Completed epoch 76/100
+2025-04-10 16:13:09,601 - glasses_detection - INFO - Completed epoch 77/100
+2025-04-10 16:13:28,310 - glasses_detection - INFO - Completed epoch 78/100
+2025-04-10 16:13:47,276 - glasses_detection - INFO - Completed epoch 79/100
+2025-04-10 16:14:06,485 - glasses_detection - INFO - Completed epoch 80/100
+2025-04-10 16:14:24,900 - glasses_detection - INFO - Completed epoch 81/100
+2025-04-10 16:14:44,090 - glasses_detection - INFO - Completed epoch 82/100
+2025-04-10 16:15:03,044 - glasses_detection - INFO - Completed epoch 83/100
+2025-04-10 16:15:22,062 - glasses_detection - INFO - Completed epoch 84/100
+2025-04-10 16:15:48,186 - glasses_detection - INFO - Completed epoch 85/100
+2025-04-10 16:16:13,656 - glasses_detection - INFO - Completed epoch 86/100
+2025-04-10 16:16:33,159 - glasses_detection - INFO - Completed epoch 87/100
+2025-04-10 16:16:51,055 - glasses_detection - INFO - Completed epoch 88/100
+2025-04-10 16:17:08,921 - glasses_detection - INFO - Completed epoch 89/100
+2025-04-10 16:17:59,563 - glasses_detection - INFO - Completed epoch 90/100
+2025-04-10 16:18:17,520 - glasses_detection - INFO - Completed epoch 91/100
+2025-04-10 16:18:35,303 - glasses_detection - INFO - Completed epoch 92/100
+2025-04-10 16:18:53,300 - glasses_detection - INFO - Completed epoch 93/100
+2025-04-10 16:19:11,163 - glasses_detection - INFO - Completed epoch 94/100
+2025-04-10 16:19:29,203 - glasses_detection - INFO - Completed epoch 95/100
+2025-04-10 16:19:47,601 - glasses_detection - INFO - Completed epoch 96/100
+2025-04-10 16:20:05,982 - glasses_detection - INFO - Completed epoch 97/100
+2025-04-10 16:20:23,955 - glasses_detection - INFO - Completed epoch 98/100
+2025-04-10 16:20:42,410 - glasses_detection - INFO - Completed epoch 99/100
+2025-04-10 16:20:45,824 - glasses_detection - INFO - Completed epoch 99/100
+2025-04-10 16:20:47,905 - glasses_detection - INFO - Training completed successfully
+2025-04-10 16:20:47,906 - glasses_detection - INFO - Running validation
+2025-04-10 16:21:20,809 - glasses_detection - INFO - Logging best model: runs\detect\yolov11-glasses_20250410_154720\weights\best.pt
+2025-04-10 16:21:21,027 - glasses_detection - INFO - Updated config saved to: configs/app_config_20250410_154720.yaml

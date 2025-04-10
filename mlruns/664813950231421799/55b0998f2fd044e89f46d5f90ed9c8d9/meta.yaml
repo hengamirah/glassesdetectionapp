@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/664813950231421799/55b0998f2fd044e89f46d5f90ed9c8d9/artifacts
+deleted_time: 1744273518292
+end_time: 1744270234120
+entry_point_name: ''
+experiment_id: '664813950231421799'
+lifecycle_stage: deleted
+run_id: 55b0998f2fd044e89f46d5f90ed9c8d9
+run_name: yolov11-glasses_20250410_152820
+run_uuid: 55b0998f2fd044e89f46d5f90ed9c8d9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744270100631
+status: 3
+tags: []
+user_id: mlflow

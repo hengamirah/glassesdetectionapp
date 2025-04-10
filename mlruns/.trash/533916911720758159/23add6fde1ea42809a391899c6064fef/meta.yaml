@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/533916911720758159/23add6fde1ea42809a391899c6064fef/artifacts
+deleted_time: 1744273502566
+end_time: 1744268772170
+entry_point_name: ''
+experiment_id: '533916911720758159'
+lifecycle_stage: deleted
+run_id: 23add6fde1ea42809a391899c6064fef
+run_name: handsome-steed-510
+run_uuid: 23add6fde1ea42809a391899c6064fef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744268697800
+status: 4
+tags: []
+user_id: mlflow

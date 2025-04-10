@@ -1,0 +1,11 @@
+tracking:
+  uri: "http://127.0.0.1:5000/" # Local storage (can be HTTP URI for remote)
+  experiment_name: "Glasses_Detection"
+  run_name: "yolov11-glasses"
+  nested: True
+
+autolog:
+  enabled: True
+  model_signatures: True
+  log_input_examples: True
+  log_model_explainability: True

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/357046971965284786/5a177f0fd60348da81d02760864205cf/artifacts
+end_time: 1744270266259
+entry_point_name: ''
+experiment_id: '357046971965284786'
+lifecycle_stage: active
+run_id: 5a177f0fd60348da81d02760864205cf
+run_name: puzzled-sow-799
+run_uuid: 5a177f0fd60348da81d02760864205cf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744270265970
+status: 3
+tags: []
+user_id: mlflow

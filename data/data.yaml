@@ -1,0 +1,14 @@
+path: C:/Users/Amirah/OneDrive/999 PERSONAL/MT/data
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['glasses']
+
+roboflow:
+  workspace: it-3pwlf
+  project: glasses-detection-cqd8m
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/it-3pwlf/glasses-detection-cqd8m/dataset/4

@@ -1,0 +1,31 @@
+augmentation:
+  flipud: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+camera:
+  fps: 30
+  height: 1080
+  source: 0
+  width: 1080
+inference:
+  path: runs\detect\yolov11-glasses_20250410_154720\weights\best.pt
+  test_data: data/test/images
+logging:
+  file: logs/glasses_detection.log
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  level: INFO
+model:
+  confidence_threshold: 0.6
+  iou_threshold: 0.45
+  path: src\yolo11l.pt
+output:
+  save_dir: outputs
+  save_interval: 30
+testing:
+  data: data/data.yaml
+training:
+  batch_size: 8
+  data: data/data.yaml
+  epochs: 100
+  img_size: 640
