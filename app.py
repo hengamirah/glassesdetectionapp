@@ -514,11 +514,6 @@ def run_app():
                    
             # Web-cam
             elif options == 'Webcam':
-                st.sidebar.markdown("""
-                <div style="margin-top: 20px; margin-bottom: 10px;">
-                    <h4 style="color: #f8f9fa;">Webcam Settings</h4>
-                </div>
-                """, unsafe_allow_html=True)
                 
                 class VideoProcessor(VideoTransformerBase):
                     def __init__(self):
