@@ -565,6 +565,7 @@ def run_app():
                     # Display detection stats below the stream
                     with st.expander("Detection Statistics"):
                         if hasattr(webrtc_ctx.video_processor, "last_detections"):
+                            logger.info(f"Detection results: {webrtc_ctx.video_processor.last_detections}")
                             df_fq = pd.DataFrame(
                                 webrtc_ctx.video_processor.last_detections.items(),
                                 columns=['Class', 'Quantity']
