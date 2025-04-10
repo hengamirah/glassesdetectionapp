@@ -22,7 +22,11 @@ import asyncio
 import logging
 import av
 import cv2 
+import asyncio
+import nest_asyncio
 
+# Apply nest_asyncio to allow nested event loops
+nest_asyncio.apply()
     
 def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
     """Perform object detection, draw bounding boxes, and black out glasses."""
@@ -95,6 +99,26 @@ def detect_objects(image, model, confidence, color_pick_list, class_labels, draw
                              color=color_pick_list[int(cs)], line_thickness=draw_thick)
                 current_no_class.append([class_labels[int(cs)]])
     return image, current_no_class
+
+class VideoProcessor(VideoTransformerBase):
+    def __init__(self):
+        self.model = None
+        self.confidence = 0.5
+        self.color_rev_list = None
+        self.class_labels = None
+        self.draw_thick = 2
+
+    def transform(self, frame):
+        img = frame.to_ndarray(format="bgr24")
+        processed_img, _ = get_yolo(
+            img.copy(),
+            self.model,
+            self.confidence,
+            self.color_rev_list,
+            self.class_labels,
+            self.draw_thick,
+        )
+        return processed_img
 
 def run_app(): 
    
@@ -469,6 +493,11 @@ def run_app():
                     pred = st.button("Process Image")
                     byte_data = upload_img_file.read()
                     image = Image.open(upload_img_file)
+                    
+                    #convert image to RGB if it is RGBA
+                    if image.mode == 'RGBA':
+                        image = image.convert('RGB')
+
                     img = np.array(image)
                     org_frame.image(upload_img_file, caption='Original Image', channels="BGR", use_container_width=True)
 
