@@ -1,6 +1,4 @@
 import streamlit as st
-
-# Set html page configuration
 import time
 import cv2
 import numpy as np
@@ -20,31 +18,10 @@ import os
 import sys
 import threading
 from src.config.config import load_config
+import asyncio
 
 
-# def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
-                    
-#     current_no_class = []
-#     results = model.predict(img)
-#     #res_plot= results[0].plot()[:, :, ::-1]
-#     #boxes = results[0].boxes
-                      
-#     for result in results:
-#         bboxs = result.boxes.xyxy
-#         conf = result.boxes.conf
-#         cls = result.boxes.cls
-        
-#         for bbox, cnf, cs in zip(bboxs, conf, cls):
-#             xmin = int(bbox[0]) 
-#             ymin = int(bbox[1])
-#             xmax = int(bbox[2])
-#             ymax = int(bbox[3])
-#             #st.write(f"Box: {xmin}, {ymin}, {xmax}, {ymax}") - Box location
-#             if cnf > confidence:
-#                 plot_one_box([xmin, ymin, xmax, ymax], img, label=class_labels[int(cs)],
-#                                 color=color_pick_list[int(cs)], line_thickness=draw_thick)
-#                 current_no_class.append([class_labels[int(cs)]])
-#     return img, current_no_class
+    
 def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
     """Perform object detection, draw bounding boxes, and black out glasses."""
     current_no_class = []
@@ -72,9 +49,11 @@ def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
 
                 # Append detected class
                 current_no_class.append([class_labels[int(cs)]])
-
+    global last_detections  # For stats display
+    last_detections = dict(Counter(i for sub in current_no_class for i in set(sub)))
+    
     return img, current_no_class
-# from ultralytics import YOLO
+
 def color_picker_fn(classname, key):
     color_picke = st.sidebar.color_picker(f'{classname}:', '#ff0003', key=key)
     color_rgb_list = list(ImageColor.getcolor(str(color_picke), "RGB"))
@@ -120,7 +99,6 @@ def run_app():
     lock = threading.Lock()
     img_container = {"img": None}
 
-
     def video_frame_callback(frame):
         img = frame.to_ndarray(format="bgr24")
         with lock:
@@ -129,50 +107,251 @@ def run_app():
         return frame
    
     p_time = 0
-    st.set_page_config(page_title="Amirah Streamlit App", layout="wide", initial_sidebar_state="auto")
-
-       
     
+    # Set page configuration with a professional look
+    st.set_page_config(
+        page_title="Mobile Tech Industries - CV Detection", 
+        layout="wide", 
+        initial_sidebar_state="expanded",
+        page_icon="📱"
+    )
 
+    # Custom CSS for a more professional look
+       # Custom CSS for a blue and white theme
+    st.markdown("""
+    <style>
+        /* Main content styling */
+        .main {
+            background-color: #f0f8ff;  /* Light blue background */
+            padding: 20px;
+        }
+        
+        /* Sidebar styling */
+        .css-1d391kg, [data-testid="stSidebar"] {
+            background-color: #1a4b8c;  /* Darker blue for sidebar */
+            color: white !important;
+        }
+        
+        /* Make ALL text in sidebar white */
+        [data-testid="stSidebar"] .st-emotion-cache-183lzff {
+            color: white !important;
+        }
+        
+        /* Sidebar text elements */
+        [data-testid="stSidebar"] p, 
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
+        [data-testid="stSidebar"] h3,
+        [data-testid="stSidebar"] h4,
+        [data-testid="stSidebar"] .stSelectbox label,
+        [data-testid="stSidebar"] .stSlider label,
+        [data-testid="stSidebar"] .stRadio label {
+            color: white !important;
+        }
+        
+        /* Selectbox labels specifically */
+        [data-testid="stSidebar"] .stSelectbox > div > label {
+            color: white !important;
+        }
+        
+        /* Dropdown options */
+        div[data-baseweb="select"] ul li {
+            color: #1a4b8c !important;  /* Blue text for dropdown options */
+        }
+        
+        /* Selected option in the selectbox - make it blue */
+        div[data-baseweb="select"] span {
+            color: #1a4b8c !important;  /* Blue text for the selected value */
+        }
+        
+        /* Make dropdown text blue when dropdown is open */
+        div[role="listbox"] span {
+            color: #1a4b8c !important;
+        }
+        
+        /* File uploader label */
+        [data-testid="stSidebar"] .stFileUploader label {
+            color: white !important;
+        }
+        
+        /* Slider labels and values */
+        [data-testid="stSidebar"] .stSlider div {
+            color: white !important;
+        }
+        
+        /* Header styling */
+        h1, h2, h3, h4 {
+            font-family: 'Arial', sans-serif;
+            color: #0046ad;  /* Blue headers */
+        }
+        
+        /* Button styling */
+        .stButton > button {
+            background-color: #0062cc;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .stButton > button:hover {
+            background-color: #004a99;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        
+        /* Card-like containers */
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(25, 75, 151, 0.15);
+            border-left: 4px solid #0062cc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Status indicators */
+        .status-active {
+            color: #0073e6;
+            font-weight: bold;
+        }
+        
+        .status-inactive {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        /* Footer styling */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #b3d1ff;
+            font-size: 0.8em;
+            color: #004a99;
+        }
+        
+        /* Improved metric displays */
+        .metric-container {
+            background-color: #e6f0ff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+            border: 1px solid #b3d1ff;
+        }
+        
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0062cc;
+        }
+        
+        .metric-label {
+            color: #004a99;
+            font-size: 0.9em;
+        }
+        
+        /* Hide MainMenu and footer */
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        
+        /* Custom header styling */
+        .company-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #b3d1ff;
+        }
+        
+        .app-header {
+            font-size: 2.2em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #0046ad, #0073e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .app-subheader {
+            color: #005cbf;
+            margin-top: -5px;
+        }
+        
+        /* Table styling */
+        .dataframe {
+            border: 1px solid #b3d1ff;
+        }
+        
+        .dataframe th {
+            background-color: #e6f0ff;
+            color: #004a99;
+        }
+        
+        /* Slider accent colors */
+        .stSlider > div > div > div > div {
+            background-color: #0062cc !important;
+        }
+        
+        /* Radio buttons */
+        .stRadio > div:first-of-type > div[role="radiogroup"] > label > div:first-of-type {
+            background-color: #0062cc !important;
+        }
+        
+        /* Checkbox */
+        .stCheckbox > div > label > div:first-of-type {
+            background-color: #0062cc !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
-    # Hide main menu style
-    menu_style_cfg = """<style>MainMenu {visibility: hidden;}</style>"""
-
-    # Main title of streamlit application
-    main_title_cfg = """<div><h1 style="color:#BF0000; text-align:center; font-size:40px; 
-                                font-family: 'Archivo', sans-serif; margin-top:-70px;margin-bottom:20px;">
-                    Computer Vision Detection App
-                    </h1></div>"""
-
-    # Subtitle of streamlit application
-    sub_title_cfg = """<div><h4 style="color:#f7b307; text-align:center; 
-                    font-family: 'Archivo', sans-serif; margin-top:-30px; margin-bottom:10px;">
-                    Experience real-time object detection on your webcam, uploaded video or image! 🚀</h4>
-                    </div>"""
-    # Custom CSS for sidebar and main page
-
-    # Append the custom HTML
-    st.markdown(menu_style_cfg, unsafe_allow_html=True)
-    st.markdown(main_title_cfg, unsafe_allow_html=True)
-    st.markdown(sub_title_cfg, unsafe_allow_html=True)
+    # Add company logo to sidebar
+    with st.sidebar:
+        try:
+            logo = Image.open("src/mt.png")
+            st.image(logo, width=180)
+        except FileNotFoundError:
+            st.sidebar.error("Logo file (mt.png) not found")
+    
+    # Header with company branding
+    st.markdown("""
+    <div class="company-header">
+        <div>
+            <div class="app-header">Glasses Detection App</div>
+            <div class="app-subheader">Advanced Computer Vision Detection Platform</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style="margin-bottom: 30px;">
+        <p>Experience glasses detection powered by state-of-the-art AI models. 
+        Our solution helps protect user privacy by automatically identifying and obscuring glasses in images and video streams.</p>
+    </div>
+    """, unsafe_allow_html=True)
             
-    # Add ultralytics logo in sidebar
-    #with st.sidebar:
-        #logo = "msf_logo.png"
-        #st.image(logo, width=250)
+    # Sidebar configuration
+    st.sidebar.markdown("""
+    <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #495057;">
+        <h3 style="color: #f8f9fa;">Detection Settings</h3>
+    </div>
+    """, unsafe_allow_html=True)
 
-    st.sidebar.title('User Configuration')
-        # Choose the model
+    # Choose the model
     model_type = st.sidebar.selectbox(
-        'Choose YOLO Model', ('Select Model','Glasses Detection', 'Upload Model')
+        'Choose Detection Model', ('Select Model','Glasses Detection', 'Upload Model')
     )
 
     cap = None
 
     if model_type == 'Upload Model':
         path_model_file = st.sidebar.text_input(
-            f'path to {model_type} Model:',
-            f'eg: dir/best.pt'
+            f'Path to {model_type}:',
+            f'eg: models/best.pt'
         )
 
     # YOLOv11 Model
@@ -184,14 +363,18 @@ def run_app():
         # Use the model path from the configuration file
         path_model_file = config['inference']['path']
 
-        path_model_file = path_model_file
-        
-
     elif model_type == 'Select Model':
         pass
     else:
-        st.error('Model not found!!')
+        st.error('Model not found!')
 
+    # Main content area with cards
+    st.markdown("""
+    <div class="card">
+        <h2>Detection Results</h2>
+    </div>
+    """, unsafe_allow_html=True)
+    
     st.subheader(f'{model_type} Predictions')
     col1, col2 = st.columns([2,2])
     org_frame = col1.empty()
@@ -202,32 +385,65 @@ def run_app():
     pred2 = False
     if model_type!= 'Select Model':
         
-        load = st.sidebar.checkbox("Load Model",key = 'Load Model')
+        load = st.sidebar.checkbox("Load Model", key='Load Model')
 
         if load:
-            with st.spinner("Model is downloading..."):
+            with st.spinner("Loading model..."):
                 try:
                     model = YOLO(path_model_file)
                     print("Model loaded successfully!")
+                    st.sidebar.markdown("""
+                    <div class="status-active">✓ Model loaded successfully!</div>
+                    """, unsafe_allow_html=True)
                 except Exception as e:
                     print(f"Failed to load model: {e}")
+                    st.sidebar.markdown("""
+                    <div class="status-inactive">✗ Failed to load model!</div>
+                    """, unsafe_allow_html=True)
             
-                st.sidebar.success(f'Model loaded successfully!')
             # Load Class names
             class_labels = model.names
             
             # Inference Mode
-            options = st.sidebar.radio('Options:', ('Webcam', 'Image', 'Video'), index=1, key='options')
+            st.sidebar.markdown("""
+            <div style="margin-top: 20px; margin-bottom: 10px;">
+                <h4 style="color: #f8f9fa;">Input Source</h4>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            options = st.sidebar.radio('Select input source:', ('Image', 'Video', 'Webcam'), key='options')
 
             # Confidence
-            confidence = st.sidebar.slider( 'Detection Confidence', 
-                                           min_value=0.0, 
-                                           max_value=1.0, 
-                                           value=0.6,
-                                           key='confidence')
+            st.sidebar.markdown("""
+            <div style="margin-top: 20px; margin-bottom: 10px;">
+                <h4 style="color: #f8f9fa;">Detection Parameters</h4>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            confidence = st.sidebar.slider( 
+                'Detection Confidence', 
+                min_value=0.0, 
+                max_value=1.0, 
+                value=0.6,
+                key='confidence'
+            )
 
             # Draw thickness
-            draw_thick = st.sidebar.slider('Draw Thickness:', min_value=1,max_value=20, value=2, key='draw_thick' )
+            draw_thick = st.sidebar.slider(
+                'Box Thickness:', 
+                min_value=1,
+                max_value=20, 
+                value=2, 
+                key='draw_thick'
+            )
+            
+            # Color picker section
+            st.sidebar.markdown("""
+            <div style="margin-top: 20px; margin-bottom: 10px;">
+                <h4 style="color: #f8f9fa;">Visualization Colors</h4>
+            </div>
+            """, unsafe_allow_html=True)
+            
             color_pick_list = []
             color_rev_list = []
             for i in range(len(class_labels)):
@@ -237,27 +453,28 @@ def run_app():
                 color_pick_list.append(color)
                 color_rev_list.append(color_rev)
             
-
             # Image
             if options == 'Image':
+                st.sidebar.markdown("""
+                <div style="margin-top: 20px; margin-bottom: 10px;">
+                    <h4 style="color: #f8f9fa;">Upload Image</h4>
+                </div>
+                """, unsafe_allow_html=True)
                              
-                upload_img_file = st.sidebar.file_uploader('Upload Image', type=['jpg', 'jpeg', 'png'],key ='image_uploader')
+                upload_img_file = st.sidebar.file_uploader('Select image file', type=['jpg', 'jpeg', 'png'], key='image_uploader')
                 
                 if upload_img_file is not None:
-                    pred = st.button("Start")
+                    pred = st.button("Process Image")
                     byte_data = upload_img_file.read()
                     image = Image.open(upload_img_file)
-                    img= np.array(image)
-                    org_frame.image(upload_img_file,caption='Uploaded Image', channels="BGR", width=300)
-                    #st.image(upload_img_file, caption='Uploaded Image', use_column_width=True)  # Display the uploaded image in Streamlit
-                    # display frame
-                    
+                    img = np.array(image)
+                    org_frame.image(upload_img_file, caption='Original Image', channels="BGR", use_column_width=True)
 
                     if pred:
-                        with st.spinner("Predicting..."):
+                        with st.spinner("Processing image..."):
                             img, current_no_class = detect_objects(img, model, confidence, color_pick_list, class_labels, draw_thick)    
-                            ann_frame.image(img,caption='Predicted Image', channels="RGB",width=300)
-                            #st.image(img, channels='BGR',use_column_width=True)
+                            ann_frame.image(img, caption='Processed Image (Glasses Obscured)', channels="RGB", use_column_width=True)
+                            
                             # Current number of classes
                             class_fq = dict(Counter(i for sub in current_no_class for i in set(sub)))
                             class_fq = json.dumps(class_fq, indent = 4)
@@ -266,171 +483,144 @@ def run_app():
                             
                             # Updating Inference results
                             with st.container():
-                                st.markdown("<h2>Inference Statistics</h2>", unsafe_allow_html=True)
-                                st.markdown("<h3>Detected objects in current Frame</h3>", unsafe_allow_html=True)
+                                st.markdown("""
+                                <div class="card">
+                                    <h3>Detection Statistics</h3>
+                                    <p>Objects identified in the current image:</p>
+                                </div>
+                                """, unsafe_allow_html=True)
                                 st.dataframe(df_fq, use_container_width=True)
 
             # Video
             elif options == 'Video':
-                upload_video_file = st.sidebar.file_uploader( 'Upload Video', type=['mp4', 'avi', 'mkv'],key ='vid_uploader')
+                st.sidebar.markdown("""
+                <div style="margin-top: 20px; margin-bottom: 10px;">
+                    <h4 style="color: #f8f9fa;">Upload Video</h4>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                upload_video_file = st.sidebar.file_uploader('Select video file', type=['mp4', 'avi', 'mkv'], key='vid_uploader')
                 
                 if upload_video_file is not None:
-                    
                     g = io.BytesIO(upload_video_file.read()) # BytesIO Object
                     vid_location = "ultralytics.mp4"
                     with open(vid_location, "wb") as out:  # Open temporary file as bytes
                         out.write(g.read())  # Read bytes into file
                     vid_file_name = "ultralytics.mp4"
-                    pred1 = st.sidebar.button("Start")
+                    pred1 = st.sidebar.button("Process Video")
                     cap = cv2.VideoCapture(vid_file_name)
-                    #tfile = tempfile.NamedTemporaryFile(delete=False)
-                    #tfile.write(upload_video_file.read())
-        
                    
             # Web-cam
             elif options == 'Webcam':
-                pred2 = st.sidebar.checkbox("Start Webcam")
-                if pred2:
-                    ws = webrtc_streamer(
-                        key="example",
-                        video_frame_callback=video_frame_callback,
-                        rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-                        media_stream_constraints={"video": True, "audio": False},
-                    )
-
-                    while ws.state.playing:
-                        with lock:
-                            img = img_container["img"]  # Get the frame from the container
-                        if img is None:
-                            continue
-
-                        # Display the original frame
-                        org_frame.image(img, caption="Original Video", channels="BGR", use_column_width=True)
-                        # Create a copy of the frame for detection
-                        img_copy = img.copy()
-
-                        # Perform detection on the copied frame
-                        img_copy,current_no_class = get_yolo(img_copy, model, confidence, color_rev_list, class_labels, draw_thick)
-
-                        # Display the annotated frame
-                        ann_frame.image(img_copy, caption="Predicted Video", channels="BGR", use_column_width=True)
-                                        
-        
-            # RTSP
-            # elif options == 'RTSP':
-            #     rtsp_url = st.sidebar.text_input(
-            #         'RTSP URL:',
-            #         'eg: rtsp://admin:name6666@198.162.1.58/cam/realmonitor?channel=0&subtype=0'
-            #     )
-            #     pred1 = st.sidebar.button("Start")
-            #     cap = cv2.VideoCapture(rtsp_url)
-            
-            if pred1 and  (cap is not None):
-        
-                class_names = list(model.names.values())# Convert dictionary to list of class names
-                selected_classes = st.sidebar.multiselect("Classes", class_names, default=class_names[:3],key='select_class')
+                st.sidebar.markdown("""
+                <div style="margin-top: 20px; margin-bottom: 10px;">
+                    <h4 style="color: #f8f9fa;">Webcam Settings</h4>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                class VideoProcessor(VideoTransformerBase):
+                    def __init__(self):
+                        self.model = model
+                        self.confidence = confidence
+                        self.color_rev_list = color_rev_list
+                        self.class_labels = class_labels
+                        self.draw_thick = draw_thick
                         
-                with st.spinner("Predicting..."):
-                    fps_display = st.sidebar.empty()  # Placeholder for FPS display
+                    def transform(self, frame):
+                        img = frame.to_ndarray(format="bgr24")
+                        
+                        # Process frame with YOLO
+                        processed_img, _ = get_yolo(
+                            img.copy(), 
+                            self.model, 
+                            self.confidence, 
+                            self.color_rev_list, 
+                            self.class_labels, 
+                            self.draw_thick
+                        )
+                        
+                        return processed_img
+                
+                webrtc_ctx = webrtc_streamer(
+                    key="glasses-detection",
+                    video_processor_factory=VideoProcessor,
+                    rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+                    media_stream_constraints={"video": True, "audio": False},
+                    async_processing=True,
+                )
+                
+                if webrtc_ctx.video_processor:
+                    # Display detection stats below the stream
+                    with st.expander("Detection Statistics"):
+                        if hasattr(webrtc_ctx.video_processor, "last_detections"):
+                            df_fq = pd.DataFrame(
+                                webrtc_ctx.video_processor.last_detections.items(),
+                                columns=['Class', 'Quantity']
+                            )
+                            st.dataframe(df_fq)
+            if pred1 and (cap is not None):
+                class_names = list(model.names.values())
+                selected_classes = st.sidebar.multiselect("Classes to detect", class_names, default=class_names[:3], key='select_class')
+                        
+                with st.spinner("Processing video..."):
+                    fps_display = st.sidebar.empty()
                     
                     if not cap.isOpened():
-                        st.error("Could not open Video.")
+                        st.error("Could not open video file.")
                     
-                    stop_button = st.button("Stop")  # Button to stop the inference
+                    stop_button = st.button("Stop Processing")
 
                     while True: 
-                        
                         success, frame = cap.read()
                         if not success:
-                            st.warning("Frame Ended")
+                            st.success("Video processing completed.")
                             break
                         
-                        ##stframe1 = st.empty()
-                        #stframe2 = st.empty()
-                        #stframe3 = st.empty()
+                        # Display original frame
+                        org_frame.image(frame, caption="Original Video", channels="BGR", use_column_width=True)
                         
-                        # prev_time = time.time()
+                        # Process frame
+                        img, current_no_class = get_yolo(frame.copy(), model, confidence, color_rev_list, class_labels, draw_thick)
                         
-                        org_frame.image(frame,caption="Uploaded Video", channels="BGR")
-                        img, current_no_class = get_yolo(frame, model, confidence, color_rev_list, class_labels, draw_thick)
-                        ann_frame.image(img,caption= "Predicted Video", channels="BGR")
-                            
+                        # Display processed frame
+                        ann_frame.image(img, caption="Processed Video (Glasses Obscured)", channels="BGR", use_column_width=True)
 
-                        # FPS
+                        # FPS calculation
                         c_time = time.time()
-                        fps = 1 / (c_time - p_time)
+                        fps = 1 / (c_time - p_time) if p_time > 0 else 30.0
                         p_time = c_time
                     
-                        # Current number of classes
+                        # Detection statistics
                         class_fq = dict(Counter(i for sub in current_no_class for i in set(sub)))
                         class_fq = json.dumps(class_fq, indent = 1)
                         class_fq = json.loads(class_fq)
                         df_fq = pd.DataFrame(class_fq.items(), columns=['Class', 'Quantity'])
                         
-                        
-                        # Multiselect box with class names and get indices of selected classes
-                        #selected_ind = [class_names.index(option) for option in selected_classes]
-                        #if not isinstance(selected_ind, list):  # Ensure selected_options is a list
-                        #    selected_ind = list(selected_ind)
-
-                        #results = model.track(frame, conf=confidence, classes=selected_ind, persist=True)
-                        #annotated_frame = results[0].plot()  # Add annotations on frame
-                        
-                            
-                        # display frame
-                        #org_frame.image(frame, channels="BGR")
-                        #ann_frame.image(annotated_frame, channels="BGR")
+                        # Display FPS
+                        fps_display.markdown(f"""
+                        <div class="metric-container">
+                            <div class="metric-value">{fps:.1f}</div>
+                            <div class="metric-label">FPS</div>
+                        </div>
+                        """, unsafe_allow_html=True)
                             
                         if stop_button:
-                            cap.release()  # Release the capture
-                            torch.cuda.empty_cache()  # Clear CUDA memory
-                            st.stop()  # Stop streamlit app
-                        # Updating Inference results
-                        #get_system_stat(stframe1, stframe2, stframe3, fps, df_fq)
+                            cap.release()
+                            torch.cuda.empty_cache()
+                            st.stop()
 
-
-                    # Display FPS in sidebar
-                        #fps_display.metric("FPS", f"{fps:.2f}") 
-                    # Release the capture
                     cap.release()
-
-                    
-                    # Clear CUDA memory
                     torch.cuda.empty_cache()
-
-                    # Destroy window
                     cv2.destroyAllWindows()
+
+    # Add footer
+    st.markdown("""
+    <div class="footer">
+        <p>© 2025 Mobile Technology Industry. All rights reserved.</p>
+        <p>Privacy Detection Platform v1.0 | Enterprise Edition</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Main function call
 if __name__ == "__main__":
     run_app()
-#
-# if (cap != None) and pred:
-#     stframe1 = st.empty()
-#     stframe2 = st.empty()
-#     stframe3 = st.empty()
-#     while True:
-#         success, img = cap.read()
-#         if not success:
-#             st.error(
-#                 f"{options} NOT working\nCheck {options} properly!!",
-#                 icon="🚨"
-#             )
-#             break
-
-#         img, current_no_class = get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick)
-#         st.image(img, channels='BGR')
-
-#         # FPS
-#         c_time = time.time()
-#         fps = 1 / (c_time - p_time)
-#         p_time = c_time
-        
-#         # Current number of classes
-#         class_fq = dict(Counter(i for sub in current_no_class for i in set(sub)))
-#         class_fq = json.dumps(class_fq, indent = 1)
-#         class_fq = json.loads(class_fq)
-#         df_fq = pd.DataFrame(class_fq.items(), columns=['Class', 'Quantity'])
-        
-#         # Updating Inference results
-#         get_system_stat(stframe1, stframe2, stframe3, fps, df_fq)
