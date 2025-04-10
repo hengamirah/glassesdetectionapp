@@ -100,25 +100,6 @@ def detect_objects(image, model, confidence, color_pick_list, class_labels, draw
                 current_no_class.append([class_labels[int(cs)]])
     return image, current_no_class
 
-class VideoProcessor(VideoTransformerBase):
-    def __init__(self):
-        self.model = None
-        self.confidence = 0.5
-        self.color_rev_list = None
-        self.class_labels = None
-        self.draw_thick = 2
-
-    def transform(self, frame):
-        img = frame.to_ndarray(format="bgr24")
-        processed_img, _ = get_yolo(
-            img.copy(),
-            self.model,
-            self.confidence,
-            self.color_rev_list,
-            self.class_labels,
-            self.draw_thick,
-        )
-        return processed_img
 
 def run_app(): 
    
@@ -595,12 +576,18 @@ def run_app():
                         st.error("Could not open video file.")
                     
                     stop_button = st.button("Stop Processing")
+                    frame_skip = 5
+                    frame_count = 0
 
                     while True: 
                         success, frame = cap.read()
                         if not success:
                             st.success("Video processing completed.")
                             break
+                        
+                        frame_count += 1
+                        if frame_count % frame_skip != 0:
+                            continue
                         
                         # Display original frame
                         org_frame.image(frame, caption="Original Video", channels="BGR", use_container_width=True)
