@@ -118,6 +118,8 @@ To run the main application:
 python main.py 
 ```
 
+##mlflow tracking result
+![mlflow_img](https://github.com/user-attachments/assets/ea215a84-321c-4702-9a28-b839739b89fc)
 
 ## Configuration
 
