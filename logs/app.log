@@ -1,0 +1,249 @@
+2025-04-10 21:00:42,614 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:42,709 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:00:52,420 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,522 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,522 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,524 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,524 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,807 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,903 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,904 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,903 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,904 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,904 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,995 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,995 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:52,995 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:53,285 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:00:53,285 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:00:53,285 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:00:58,628 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:58,882 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:00:59,188 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:00:59,262 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:00:59,498 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:01:00,613 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,616 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,672 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,676 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,719 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,721 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,766 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,767 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,812 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,814 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,852 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,853 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,886 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,887 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,921 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,922 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,956 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,959 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:00,996 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:00,998 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,033 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,034 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,072 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,073 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,103 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,187 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,234 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,236 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,268 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,270 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,300 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,301 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,332 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,333 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,369 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,371 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,402 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,404 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,433 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,434 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,463 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,465 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,499 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,514 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,554 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,555 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,593 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,595 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,629 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,630 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,678 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,681 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,765 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,766 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,798 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,799 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,828 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,830 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,868 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,869 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,897 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,912 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,945 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,946 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:01,978 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:01,980 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,033 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,035 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,068 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,069 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,101 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,103 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,143 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,144 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,177 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,178 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,211 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,212 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,247 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,249 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,299 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,301 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,347 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,348 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,385 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,386 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,421 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,422 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,458 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,459 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,493 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,494 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,528 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,529 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,565 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,567 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,601 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,602 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,636 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,638 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,669 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,670 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,716 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,718 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,786 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,787 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,826 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,827 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,861 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,862 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,898 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,899 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,937 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,938 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:02,984 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:02,985 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,029 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,031 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,067 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,068 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,108 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,113 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,154 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,155 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,188 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,190 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,223 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,224 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,260 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,261 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,313 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,315 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,350 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,351 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,387 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,389 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,435 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,437 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,471 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,472 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,506 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,512 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,545 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,546 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,578 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,580 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,616 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,616 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,651 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,653 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,688 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,689 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,721 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,722 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,754 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,756 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,796 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,799 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,840 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,841 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,877 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,878 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,910 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,913 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,947 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,949 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:03,984 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:03,985 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,040 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,041 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,088 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,089 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,128 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,129 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,160 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,161 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,194 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,195 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,230 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,233 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,272 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,273 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,313 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,314 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,357 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,359 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,398 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,400 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,463 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,464 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,502 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,503 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,539 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,541 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,581 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,583 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,652 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,655 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,714 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,716 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,760 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,762 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,814 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,815 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,844 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,846 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,881 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,882 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,925 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,929 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:04,966 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:04,969 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:05,000 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:05,001 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:05,032 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:05,034 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:05,099 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:05,100 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:05,146 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:01:05,193 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:05,199 - glasses_detection - DEBUG - Processing a new frame from the webcam.
+2025-04-10 21:01:05,274 - glasses_detection - DEBUG - Frame processed successfully.
+2025-04-10 21:01:05,385 - glasses_detection - INFO - Model loaded successfully!
+2025-04-10 21:01:05,616 - glasses_detection - INFO - Logging setup complete
+2025-04-10 21:01:05,806 - glasses_detection - INFO - Model loaded successfully!

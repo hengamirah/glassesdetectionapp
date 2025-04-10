@@ -15,9 +15,16 @@ import torch
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 import threading
 from src.config.config import load_config
-# Add these imports at the top of your file
 import cv2 
+from src.logging.logger import setup_logging
 
+# Set up logging
+log_config = {
+    "level": "DEBUG",  # Set to DEBUG to capture detailed logs
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/app.log",  # Log file path
+}
+logger = setup_logging(log_config)
 
     
 def get_yolo(img, model, confidence, color_pick_list, class_labels, draw_thick):
@@ -390,11 +397,13 @@ def run_app():
             with st.spinner("Loading model..."):
                 try:
                     model = YOLO(path_model_file)
+                    logger.info("Model loaded successfully!")
                     print("Model loaded successfully!")
                     st.sidebar.markdown("""
                     <div class="status-active">✓ Model loaded successfully!</div>
                     """, unsafe_allow_html=True)
                 except Exception as e:
+                    logger.error(f"Failed to load model: {e}")
                     print(f"Failed to load model: {e}")
                     st.sidebar.markdown("""
                     <div class="status-inactive">✗ Failed to load model!</div>
@@ -527,19 +536,23 @@ def run_app():
                         
                     def transform(self, frame):
                         img = frame.to_ndarray(format="bgr24")
+                        logger.debug("Processing a new frame from the webcam.")
+                        try:
+                            # Process frame with YOLO
+                            processed_img, _ = get_yolo(
+                                img.copy(), 
+                                self.model, 
+                                self.confidence, 
+                                self.color_rev_list, 
+                                self.class_labels, 
+                                self.draw_thick
+                            )
+                            logger.debug("Frame processed successfully.")
+                            return processed_img
+                        except Exception as e:
+                            logger.error(f"Error processing frame: {e}")
+                            return img
                         
-                        # Process frame with YOLO
-                        processed_img, _ = get_yolo(
-                            img.copy(), 
-                            self.model, 
-                            self.confidence, 
-                            self.color_rev_list, 
-                            self.class_labels, 
-                            self.draw_thick
-                        )
-                        
-                        return processed_img
-                
                 webrtc_ctx = webrtc_streamer(
                     key="glasses-detection",
                     video_processor_factory=VideoProcessor,
