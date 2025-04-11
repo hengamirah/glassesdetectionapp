@@ -5,7 +5,7 @@
 https://github.com/user-attachments/assets/f3c8fc56-f441-4df0-a3d2-93553fc5d556
 
 
-A comprehensive machine learning pipeline for detecting glasses in images and video streams using YOLOv8. This project integrates real-time detection, model training, and MLflow experiment tracking.
+A comprehensive machine learning pipeline for detecting glasses in images and video streams using YOLOv11. This project integrates real-time detection, model training, and MLflow experiment tracking.
 
 ## Features
 
